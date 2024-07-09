@@ -1,2 +1,3 @@
-![ceuzinho](https://github.com/LLLesinski/LLLesinski/assets/175053412/95c66982-df3a-4a8f-ae17-fc19e7c5e571)
+![ceu2](https://github.com/LLLesinski/LLLesinski/assets/175053412/3847e1d9-8609-48c2-99a2-8c8dd94eb55e)
+
 
