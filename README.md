@@ -1,1 +1,2 @@
-<img src=https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Earth.gif width="30">
+![gif](https://github.com/LLLesinski/LLLesinski/assets/175053412/e0186bdf-a07e-4070-9e16-236873ccfbfc)
+
