@@ -1,1 +1,2 @@
-![DANCING](https://github.com/LLLesinski/LLLesinski/assets/175053412/16472fc3-338a-4be4-bf7e-d8c4c5dfaa4a) 
+![nyancat](https://github.com/user-attachments/assets/797ed585-cf98-4586-b406-f0c86f7efdfa)
+
