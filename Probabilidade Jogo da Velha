@@ -1,0 +1,93 @@
+import random
+import math
+tabuleiro = [" "] * 9#                                                                                       |        |   
+def conferidordevitoria(tabuleiro): # Verifica se há um vencedor no jogo                                     |        |  
+ #                                                                                                      0    |   1    |    2                                               
+    wins =                  [(0,1,2), (3,4,5), (6,7,8),     # Linhas                               -----------------------------  
+                             (0,3,6), (1,4,7), (2,5,8),     # Colunas                                        |        |
+                             (0,4,8), (2,4,6)          ]    # Diagonais                                  3   |   4    |    5
+    #                                                                                                        |        |  
+#                                                                                                  -----------------------------         
+    for a, b, c in wins:#                                                                                    |        |
+        if tabuleiro[a] == tabuleiro[b] == tabuleiro[c] and tabuleiro[a] != " ": #                      6    |   7    |    8
+           return  tabuleiro[a]#                                                                             |        |  
+
+    return None  # Nenhum vencedor ainda
+
+
+def jogo(tabuleiro):
+
+    i = 0
+
+    while(True):
+        casa = random.randint(0, 8)
+        if(i%2 == 0 and tabuleiro[casa] == " "):
+            tabuleiro[casa] = "X"
+            i += 1
+        elif(i%2 != 0 and tabuleiro[casa] == " "):
+            tabuleiro[casa] = "O"
+            i += 1
+
+        win = conferidordevitoria(tabuleiro)
+
+        if(conferidordevitoria(tabuleiro) is not None):
+            return win
+
+        if i >= 9:
+            return " "
+
+
+WinX = 0
+WinO = 0
+Emps = 0
+jogos = 100
+for i in range(jogos):
+    winner = jogo([" "] * 9)
+    if winner == "X":
+        WinX += 1
+    elif winner == "O":
+        WinO += 1
+    else:
+        Emps += 1
+
+print(WinX)
+print(WinO)
+print(Emps)
+
+probX = WinX / 100
+probO = WinO / 100
+probEmp = Emps / 100
+
+escolha = int(input("\n\nQual probabilidade quer saber?\n\n--> 1) Probabilidade de X ganhar\n\n--> 2) Probabilidade de O ganhar\n\n--> "))
+
+
+match(escolha):
+
+    case (1):
+        n = jogos
+        k = WinX
+        nf = math.factorial(jogos)
+        kf = math.factorial(WinX)
+        nkf = math.factorial(n-k)
+        ProbTotal = ((nf / (kf * nkf)) * probX) * (probX**k) * ((1-probX)**(n-k))
+        ProbPrint = ProbTotal * 1000
+        print("A probabilidade de X ganhar é de:\n")
+        print(round(ProbPrint, 2),"%")
+        
+#     #P(X=k) = (n!) / (k!(n-k)!) * p**k * (1-p)**(n-k) --> BERNOULLI
+
+    case (2):
+        n = jogos
+        k = WinO
+        p = WinO / jogos
+        nf = math.factorial(jogos)
+        kf = math.factorial(WinO)
+        nkf = math.factorial(n-k)
+        ProbTotal = ((nf / (kf * nkf)) * probO) * (probO**k) * ((1-probO)**(n-k))
+        ProbPrint = ProbTotal * 1000
+        print("A probabilidade de O ganhar é de:\n")
+        print(round(ProbPrint, 2),"%")
+
+
+    case _:
+        print("Cabou")
